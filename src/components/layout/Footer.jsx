@@ -1,13 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
+import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -16,20 +9,29 @@ export default function Footer() {
         <Row className="g-4">
           {/* About */}
           <Col md={3}>
-            <h5 className="text-white mb-3">Pawfect Grooming</h5>
+            <h5 className="text-white mb-3">Bark N Boujee</h5>
             <p className="small mb-3">
               Professional dog grooming services with a personal touch. Your
               pet's comfort and happiness is our priority.
             </p>
             <div className="d-flex gap-3">
-              <a href="#">
+              <a
+                href="https://www.facebook.com/BarkNBoujeeGrooming"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Facebook page"
+                className="social-icon"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/barknboujeegrooming/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
+                className="social-icon"
+              >
                 <Instagram size={20} />
-              </a>
-              <a href="#">
-                <Twitter size={20} />
               </a>
             </div>
           </Col>
@@ -42,13 +44,19 @@ export default function Footer() {
                 <Link to="/services">Services</Link>
               </li>
               <li className="mb-2">
+                <Link to="/gallery">Gallery</Link>
+              </li>
+              <li className="mb-2">
                 <Link to="/staff">Our Team</Link>
               </li>
               <li className="mb-2">
                 <Link to="/testimonials">Testimonials</Link>
               </li>
               <li className="mb-2">
-                <Link to="/rewards">Rewards Program</Link>
+                <Link to="/login">Rewards Program</Link>
+              </li>
+              <li className="mb-2">
+                <Link to="/admin/login">Staff Portal</Link>
               </li>
             </ul>
           </Col>
@@ -60,13 +68,13 @@ export default function Footer() {
               <li className="mb-2 d-flex gap-2">
                 <Phone size={16} className="mt-1" />
                 <div>
-                  <div>(555) 123-4567</div>
-                  <div>(555) 234-5678</div>
+                  <a
+                    href="tel:+13128255921"
+                    className="text-white text-decoration-none"
+                  >
+                    (312) 825-5921
+                  </a>
                 </div>
-              </li>
-              <li className="mb-2 d-flex gap-2">
-                <Mail size={16} className="mt-1" />
-                <span>info@pawfectgrooming.com</span>
               </li>
               <li className="mb-2 d-flex gap-2">
                 <MapPin size={16} className="mt-1" />
@@ -80,16 +88,8 @@ export default function Footer() {
             <h5 className="text-white mb-3">Hours</h5>
             <ul className="list-unstyled small">
               <li className="mb-1 d-flex justify-content-between">
-                <span>Mon - Wed:</span>
-                <span>9AM - 6PM</span>
-              </li>
-              <li className="mb-1 d-flex justify-content-between">
-                <span>Thu - Fri:</span>
-                <span>9AM - 7PM</span>
-              </li>
-              <li className="mb-1 d-flex justify-content-between">
-                <span>Saturday:</span>
-                <span>10AM - 5PM</span>
+                <span>Mon - Sat:</span>
+                <span>8AM - 5PM</span>
               </li>
               <li className="mb-1 d-flex justify-content-between">
                 <span>Sunday:</span>
@@ -103,7 +103,7 @@ export default function Footer() {
 
         <div className="text-center small">
           <p className="mb-0">
-            &copy; 2025 Pawfect Grooming. All rights reserved.
+            &copy; 2026 Bark N Boujee. All rights reserved.
           </p>
         </div>
       </Container>

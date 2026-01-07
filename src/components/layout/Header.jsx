@@ -1,17 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container, Nav, Navbar, Button, Dropdown } from "react-bootstrap";
-import {
-  Calendar,
-  User,
-  LogOut,
-  LayoutDashboard,
-  Sparkles,
-} from "lucide-react";
+import { Calendar, User, LogOut, Home, Sparkles } from "lucide-react";
 import { useAuthStore } from "../../store/authStore";
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const { user, isAuthenticated, logout, openDashboard } = useAuthStore();
+  const { user, isAuthenticated, logout } = useAuthStore();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
   // Detect scroll for dynamic navbar effect
@@ -22,6 +17,11 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
 
   return (
     <Navbar
@@ -60,6 +60,9 @@ export default function Header() {
             </Nav.Link>
             <Nav.Link as={Link} to="/services" className="nav-link-animated">
               Services
+            </Nav.Link>
+            <Nav.Link as={Link} to="/gallery" className="nav-link-animated">
+              Gallery
             </Nav.Link>
             <Nav.Link as={Link} to="/staff" className="nav-link-animated">
               Our Team
@@ -102,18 +105,18 @@ export default function Header() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu className="dropdown-menu-animated">
-                  <Dropdown.Item
-                    onClick={openDashboard}
-                    className="dropdown-item-animated"
-                  >
-                    <LayoutDashboard size={16} className="me-2" />
+                  <Dropdown.Header>
+                    {user.firstName} {user.lastName}
+                    <br />
+                    <small className="text-muted">{user.email}</small>
+                  </Dropdown.Header>
+                  <Dropdown.Divider />
+                  <Dropdown.Item as={Link} to="/">
+                    <Home size={16} className="me-2" />
                     My Dashboard
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item
-                    onClick={logout}
-                    className="dropdown-item-animated"
-                  >
+                  <Dropdown.Item onClick={handleLogout}>
                     <LogOut size={16} className="me-2" />
                     Logout
                   </Dropdown.Item>

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./components/layout/Layout";
+import AdminLayout from "./components/admin/AdminLayout";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Staff from "./pages/Staff";
@@ -8,6 +9,9 @@ import Locations from "./pages/Locations";
 import Contact from "./pages/Contact";
 import Book from "./pages/Book";
 import Login from "./pages/Login";
+import Gallery from "./pages/Gallery"; // Add this
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "staff",
         element: <Staff />,
+      },
+      {
+        path: "gallery", // Add this route
+        element: <Gallery />,
       },
       {
         path: "testimonials",
@@ -45,6 +53,20 @@ export const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />,
+    children: [
+      {
+        path: "dashboard",
+        element: <AdminDashboard />,
       },
     ],
   },

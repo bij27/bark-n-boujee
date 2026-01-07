@@ -10,6 +10,7 @@ import {
   Button,
   Badge,
   ListGroup,
+  Alert,
 } from "react-bootstrap";
 import { useAuthStore } from "../store/authStore";
 import { mockAppointments, mockPets, mockRewards } from "../data/mockData";
@@ -20,13 +21,16 @@ import PetTracker from "../components/dashboard/PetTracker";
 export default function Home() {
   const { isAuthenticated, user } = useAuthStore();
 
-  // If user is logged in, show dashboard version
   if (isAuthenticated) {
+    // Get the first pet (Cher)
+    const userPet = mockPets[0];
+
+    // Create in-progress appointment with REAL pet name
     const inProgressAppointment = {
       id: "apt-today",
-      petName: "Bella",
+      petName: userPet.name, // Uses Cher's name now!
       service: "Full Grooming Package",
-      groomer: "Jessica Smith",
+      groomer: "Austin & Ivan",
       location: "Downtown Location",
       status: "in-progress",
       currentStage: 3,
@@ -42,13 +46,22 @@ export default function Home() {
       .sort((a, b) => new Date(b.date) - new Date(a.date))
       .slice(0, 3);
 
+    // Get vaccine status with proper labels
+    const getVaccineStatus = (vaccine) => {
+      if (vaccine.status === "current")
+        return { variant: "success", text: "Current ✓" };
+      if (vaccine.status === "expiring_soon")
+        return { variant: "warning", text: "Expiring Soon" };
+      return { variant: "danger", text: "Expired" };
+    };
+
     return (
       <div className="bg-light py-5">
         <Container>
           {/* Welcome Header */}
           <div className="text-center mb-5">
             <h1 className="display-4 fw-bold">
-              Welcome back, {user.firstName}! 👋
+              Welcome back, {user.firstName}!
             </h1>
             <p className="lead text-muted">
               Here's what's happening with your furry friends
@@ -122,9 +135,9 @@ export default function Home() {
                       <h5 className="mb-0">
                         Rewards Tier:{" "}
                         <Badge
-                          style={{ backgroundColor: "#9d8189", color: "#fff" }}
+                          style={{ backgroundColor: "#cd7f32", color: "#fff" }}
                         >
-                          GOLD
+                          BRONZE
                         </Badge>
                       </h5>
                     </div>
@@ -135,8 +148,11 @@ export default function Home() {
 
                   <div className="mb-2">
                     <div className="d-flex justify-content-between small mb-1">
-                      <span>2,500 points</span>
-                      <span>3,000 points to Platinum</span>
+                      <span>{mockRewards.points.toLocaleString()} points</span>
+                      <span>
+                        {mockRewards.tierProgress.nextTier.toLocaleString()}{" "}
+                        points to Silver
+                      </span>
                     </div>
                     <div
                       className="progress"
@@ -144,13 +160,24 @@ export default function Home() {
                     >
                       <div
                         className="progress-bar"
-                        style={{ width: "83%", backgroundColor: "#ffcad4" }}
+                        style={{
+                          width: `${
+                            (mockRewards.points /
+                              mockRewards.tierProgress.nextTier) *
+                            100
+                          }%`,
+                          backgroundColor: "#ffcad4",
+                        }}
                       ></div>
                     </div>
                   </div>
 
                   <small className="text-muted">
-                    You're 500 points away from Platinum tier!
+                    You're{" "}
+                    {(
+                      mockRewards.tierProgress.nextTier - mockRewards.points
+                    ).toLocaleString()}{" "}
+                    points away from Silver tier!
                   </small>
                 </Card.Body>
               </Card>
@@ -302,21 +329,82 @@ export default function Home() {
                 </ListGroup>
               </Card>
 
-              {/* Next Vaccine Due */}
-              <Card
-                className="border-0 shadow-sm"
-                style={{ backgroundColor: "rgba(255, 202, 212, 0.1)" }}
-              >
+              {/* Vaccine Status */}
+              <Card className="border-0 shadow-sm">
+                <Card.Header className="bg-white border-0 py-3">
+                  <h5 className="mb-0"> Vaccine Status</h5>
+                </Card.Header>
                 <Card.Body>
-                  <h6 className="mb-2" style={{ color: "#f4acb7" }}>
-                    ⚠️ Vaccine Alert
-                  </h6>
-                  <p className="small mb-2">
-                    <strong>Bella's DHPP</strong> expires on Jan 20, 2025
-                  </p>
-                  <Button size="sm" variant="outline-primary">
-                    Schedule Update
-                  </Button>
+                  {mockPets.map((pet) => (
+                    <div key={pet.id}>
+                      <h6 className="mb-3">{pet.name}'s Vaccines</h6>
+                      <div className="d-flex flex-column gap-2">
+                        <div className="d-flex justify-content-between align-items-center">
+                          <span className="small">Rabies</span>
+                          <Badge
+                            bg={
+                              getVaccineStatus(pet.vaccineStatus.rabies).variant
+                            }
+                          >
+                            {getVaccineStatus(pet.vaccineStatus.rabies).text}
+                          </Badge>
+                        </div>
+                        <small className="text-muted">
+                          Expires:{" "}
+                          {format(
+                            new Date(pet.vaccineStatus.rabies.expiresAt),
+                            "MMM dd, yyyy"
+                          )}
+                        </small>
+
+                        <div className="d-flex justify-content-between align-items-center mt-2">
+                          <span className="small">Bordetella</span>
+                          <Badge
+                            bg={
+                              getVaccineStatus(pet.vaccineStatus.bordetella)
+                                .variant
+                            }
+                          >
+                            {
+                              getVaccineStatus(pet.vaccineStatus.bordetella)
+                                .text
+                            }
+                          </Badge>
+                        </div>
+                        <small className="text-muted">
+                          Expires:{" "}
+                          {format(
+                            new Date(pet.vaccineStatus.bordetella.expiresAt),
+                            "MMM dd, yyyy"
+                          )}
+                        </small>
+
+                        <div className="d-flex justify-content-between align-items-center mt-2">
+                          <span className="small">DHPP</span>
+                          <Badge
+                            bg={
+                              getVaccineStatus(pet.vaccineStatus.dhpp).variant
+                            }
+                          >
+                            {getVaccineStatus(pet.vaccineStatus.dhpp).text}
+                          </Badge>
+                        </div>
+                        <small className="text-muted">
+                          Expires:{" "}
+                          {format(
+                            new Date(pet.vaccineStatus.dhpp.expiresAt),
+                            "MMM dd, yyyy"
+                          )}
+                        </small>
+                      </div>
+
+                      {pet.notes && (
+                        <Alert variant="info" className="mt-3 small mb-0">
+                          <strong>Note:</strong> {pet.notes}
+                        </Alert>
+                      )}
+                    </div>
+                  ))}
                 </Card.Body>
               </Card>
             </Col>
