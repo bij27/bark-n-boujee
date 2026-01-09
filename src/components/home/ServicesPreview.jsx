@@ -1,47 +1,46 @@
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap";
-import { Scissors, Sparkles, Heart, Wind } from "lucide-react";
 
 const services = [
   {
-    icon: Scissors,
-    name: "Full Grooming",
+    name: "Full Service - Small",
     description:
-      "Complete grooming package including bath, cut, nails, and more",
-    price: "From $75",
+      "Complete luxury grooming including bath, haircut, nail trim, blueberry facial, and finishing touches",
+    price: "Starting at $110",
     popular: true,
   },
   {
-    icon: Sparkles,
-    name: "Bath & Brush",
+    name: "Full Service - Medium",
     description:
-      "Thorough bath with premium shampoo and professional brush out",
-    price: "From $45",
+      "Our signature experience with premium products, customized haircut, and chic bow tie or bandana",
+    price: "Starting at $130",
     popular: true,
   },
   {
-    icon: Heart,
-    name: "Nail Trim",
-    description: "Quick and gentle nail trimming service",
-    price: "$20",
+    name: "Full Service - Large",
+    description:
+      "Complete grooming package tailored for larger breeds with extra attention and care",
+    price: "Starting at $150",
+    popular: true,
+  },
+  {
+    name: "Puppy Introduction",
+    description:
+      "Gentle first grooming experience for pups under 6 months to build confidence",
+    price: "Starting at $70",
     popular: false,
-  },
-  {
-    icon: Wind,
-    name: "De-Shedding",
-    description: "Special treatment to reduce shedding and keep coat healthy",
-    price: "From $60",
-    popular: true,
   },
 ];
 
 export default function ServicesPreview() {
   return (
-    <section className="py-5 bg-white">
+    <section className="py-5" style={{ backgroundColor: "#0c7c59" }}>
       <Container>
         {/* Section Header */}
         <div className="text-center mb-5">
-          <h2 className="display-4 fw-bold mb-3">Our Services</h2>
+          <h2 className="display-4 fw-bold mb-3" style={{ color: "#fff9fb" }}>
+            Our Services
+          </h2>
           <p className="lead text-muted">
             Professional grooming services tailored to your pet's needs
           </p>
@@ -49,43 +48,52 @@ export default function ServicesPreview() {
 
         {/* Services Grid */}
         <Row className="g-4 mb-5">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <Col key={index} md={6} lg={3}>
-                <Card className="h-100 border-0 shadow-sm card-hover position-relative">
-                  {service.popular && (
-                    <Badge
-                      className="badge-popular"
-                      style={{ backgroundColor: "#9d8189" }}
-                    >
-                      Popular
-                    </Badge>
-                  )}
-                  <Card.Body>
-                    <div
-                      className="rounded-circle d-inline-flex p-3 mb-3"
-                      style={{ backgroundColor: "rgba(255, 202, 212, 0.2)" }}
-                    >
-                      <Icon size={32} style={{ color: "#f4acb7" }} />
-                    </div>
-                    <Card.Title className="h5 mb-2">{service.name}</Card.Title>
-                    <Card.Text className="text-muted mb-3">
-                      {service.description}
-                    </Card.Text>
-                    <div className="fw-bold fs-5" style={{ color: "#f4acb7" }}>
-                      {service.price}
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
+          {services.map((service, index) => (
+            <Col key={index} md={6} lg={3}>
+              <Card className="h-100 border-0 shadow-sm card-hover position-relative">
+                {service.popular && (
+                  <Badge
+                    className="badge-popular"
+                    style={{
+                      backgroundColor: "#ffe2d1",
+                      color: "#2b303a",
+                    }}
+                  >
+                    Popular
+                  </Badge>
+                )}
+                <Card.Body>
+                  <Card.Title className="h5 mb-3" style={{ color: "#2b303a" }}>
+                    {service.name}
+                  </Card.Title>
+                  <Card.Text className="text-primary mb-3">
+                    {service.description}
+                  </Card.Text>
+                  <div
+                    className="fw-bold fs-5 mb-3"
+                    style={{ color: "#0c7c59" }}
+                  >
+                    {service.price}
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
 
         {/* CTA */}
         <div className="text-center">
-          <Button as={Link} to="/services" variant="primary" size="lg">
+          <Button
+            as={Link}
+            to="/services"
+            size="lg"
+            style={{
+              backgroundColor: "#0c7c59",
+              borderColor: "#0c7c59",
+              color: "#fff9fb",
+              fontWeight: "600",
+            }}
+          >
             View All Services
           </Button>
         </div>

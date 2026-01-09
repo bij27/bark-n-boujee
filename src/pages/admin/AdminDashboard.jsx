@@ -261,13 +261,22 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="bg-light min-vh-100 py-4">
+    <div
+      style={{
+        backgroundColor: "#fff9fb",
+        minHeight: "100vh",
+        paddingTop: "2rem",
+        paddingBottom: "2rem",
+      }}
+    >
       <Container fluid>
         {/* Header */}
         <Row className="mb-4">
           <Col>
-            <h2 className="fw-bold">Welcome, {admin.firstName}</h2>
-            <p className="text-muted">
+            <h2 className="fw-bold" style={{ color: "#2b303a" }}>
+              Welcome, {admin.firstName}
+            </h2>
+            <p className="text-primary">
               {admin.role === "admin" ? "Administrator" : "Groomer"} •{" "}
               {admin.location}
             </p>
@@ -285,64 +294,64 @@ export default function AdminDashboard() {
         )}
 
         {/* Stats */}
-        <Row className="g-3 mb-4">
-          <Col md={4}>
+        <Row className="g-3 mb-4 dashboard-stats">
+          <Col xs={12} sm={6} md={4}>
             <Card className="border-0 shadow-sm">
               <Card.Body>
                 <div className="d-flex align-items-center gap-3">
                   <div
                     className="rounded-circle p-3"
-                    style={{ backgroundColor: "rgba(255, 202, 212, 0.2)" }}
+                    style={{ backgroundColor: "rgba(97, 226, 148, 0.2)" }}
                   >
-                    <Calendar size={28} style={{ color: "#f4acb7" }} />
+                    <Calendar size={28} style={{ color: "#0c7c59" }} />
                   </div>
                   <div>
                     <h3 className="h2 fw-bold mb-0">
                       {filteredAppointments.length}
                     </h3>
-                    <small className="text-muted">Today's Appointments</small>
+                    <small className="text-primary">Today's Appointments</small>
                   </div>
                 </div>
               </Card.Body>
             </Card>
           </Col>
 
-          <Col md={4}>
+          <Col xs={12} sm={6} md={4}>
             <Card className="border-0 shadow-sm">
               <Card.Body>
                 <div className="d-flex align-items-center gap-3">
                   <div
                     className="rounded-circle p-3"
-                    style={{ backgroundColor: "rgba(157, 129, 137, 0.2)" }}
+                    style={{ backgroundColor: "rgba(255, 226, 209, 0.3)" }}
                   >
-                    <Clock size={28} style={{ color: "#9d8189" }} />
+                    <Clock size={28} style={{ color: "#0c7c59" }} />
                   </div>
                   <div>
                     <h3 className="h2 fw-bold mb-0">
                       {inProgressAppointments.length}
                     </h3>
-                    <small className="text-muted">Currently Here</small>
+                    <small className="text-primary">Currently Here</small>
                   </div>
                 </div>
               </Card.Body>
             </Card>
           </Col>
 
-          <Col md={4}>
+          <Col xs={12} sm={12} md={4}>
             <Card className="border-0 shadow-sm">
               <Card.Body>
                 <div className="d-flex align-items-center gap-3">
                   <div
                     className="rounded-circle p-3"
-                    style={{ backgroundColor: "rgba(216, 226, 220, 0.4)" }}
+                    style={{ backgroundColor: "rgba(97, 226, 148, 0.15)" }}
                   >
-                    <Calendar size={28} style={{ color: "#9d8189" }} />
+                    <Calendar size={28} style={{ color: "#61e294" }} />
                   </div>
                   <div>
                     <h3 className="h2 fw-bold mb-0">
                       {upcomingAppointments.length}
                     </h3>
-                    <small className="text-muted">Upcoming Today</small>
+                    <small className="text-primary">Upcoming Today</small>
                   </div>
                 </div>
               </Card.Body>
@@ -350,12 +359,12 @@ export default function AdminDashboard() {
           </Col>
         </Row>
 
-        <Row className="g-4">
+        <Row className="g-4 admin-dashboard">
           {/* Currently Here - Left Side */}
-          <Col lg={7}>
+          <Col xs={12} lg={7}>
             <Card className="border-0 shadow-sm mb-4">
               <Card.Header className="bg-white border-0 py-3">
-                <h5 className="mb-0">
+                <h5 className="mb-0" style={{ color: "#2b303a" }}>
                   Currently Here ({inProgressAppointments.length})
                 </h5>
               </Card.Header>
@@ -366,31 +375,32 @@ export default function AdminDashboard() {
                       <Card.Body>
                         {/* Pet Info */}
                         <Row className="mb-3">
-                          <Col md={4}>
+                          <Col xs={12} md={4} className="mb-3 mb-md-0">
                             <div className="d-flex gap-3 align-items-center">
                               <img
                                 src={apt.petPhoto}
                                 alt={apt.petName}
-                                className="rounded-circle"
+                                className="rounded-circle pet-photo"
                                 style={{
-                                  width: "70px",
-                                  height: "70px",
+                                  width: "60px",
+                                  height: "60px",
                                   objectFit: "cover",
+                                  border: "2px solid #61e294",
                                 }}
                               />
                               <div>
                                 <h5 className="mb-1">{apt.petName}</h5>
-                                <small className="text-muted d-block">
+                                <small className="text-primary d-block">
                                   {apt.petBreed}
                                 </small>
-                                <small className="text-muted">
+                                <small className="text-primary">
                                   {apt.customerName}
                                 </small>
                               </div>
                             </div>
                           </Col>
 
-                          <Col md={8}>
+                          <Col xs={12} md={8}>
                             {apt.notes && (
                               <Alert
                                 variant="warning"
@@ -399,13 +409,21 @@ export default function AdminDashboard() {
                                 <strong>Note:</strong> {apt.notes}
                               </Alert>
                             )}
-                            <div className="d-flex gap-2 small">
+                            <div className="d-flex flex-column flex-sm-row gap-2 small">
                               <div>
-                                <User size={14} className="me-1" />
+                                <User
+                                  size={14}
+                                  className="me-1"
+                                  style={{ color: "#0c7c59" }}
+                                />
                                 {apt.customerPhone}
                               </div>
                               <div>
-                                <MapPin size={14} className="me-1" />
+                                <MapPin
+                                  size={14}
+                                  className="me-1"
+                                  style={{ color: "#0c7c59" }}
+                                />
                                 {apt.service}
                               </div>
                             </div>
@@ -414,9 +432,9 @@ export default function AdminDashboard() {
 
                         {/* Stage Toggle Buttons */}
                         <div className="mb-3">
-                          <div className="d-flex justify-content-between align-items-center mb-2">
+                          <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mb-2 gap-2">
                             <strong className="small">Grooming Status:</strong>
-                            <Badge bg="primary">
+                            <Badge style={{ backgroundColor: "#0c7c59" }}>
                               Stage {apt.currentStage}/4
                             </Badge>
                           </div>
@@ -424,30 +442,34 @@ export default function AdminDashboard() {
                             {stages.map((stage) => (
                               <Button
                                 key={stage.id}
-                                variant={
-                                  apt.currentStage >= stage.id
-                                    ? "primary"
-                                    : "outline-secondary"
-                                }
                                 onClick={() =>
                                   updateAppointmentStage(apt.id, stage.id)
                                 }
                                 className="d-flex flex-column align-items-center py-2"
+                                style={{
+                                  fontSize: "0.8rem",
+                                  backgroundColor:
+                                    apt.currentStage >= stage.id
+                                      ? "#0c7c59"
+                                      : "transparent",
+                                  borderColor:
+                                    apt.currentStage >= stage.id
+                                      ? "#0c7c59"
+                                      : "rgba(97, 226, 148, 0.5)",
+                                  color:
+                                    apt.currentStage >= stage.id
+                                      ? "#fff9fb"
+                                      : "#0c7c59",
+                                }}
                               >
                                 <small className="fw-bold">{stage.label}</small>
                                 {apt.currentStage === stage.id && (
-                                  <small
-                                    className="text-white"
-                                    style={{ fontSize: "0.7rem" }}
-                                  >
+                                  <small style={{ fontSize: "0.65rem" }}>
                                     Current
                                   </small>
                                 )}
                                 {apt.currentStage > stage.id && (
-                                  <small
-                                    className="text-white"
-                                    style={{ fontSize: "0.7rem" }}
-                                  >
+                                  <small style={{ fontSize: "0.65rem" }}>
                                     ✓
                                   </small>
                                 )}
@@ -457,10 +479,14 @@ export default function AdminDashboard() {
                         </div>
 
                         {/* ETA Section */}
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
                           <div>
-                            <Clock size={16} className="me-2" />
-                            <small className="text-muted">
+                            <Clock
+                              size={16}
+                              className="me-2"
+                              style={{ color: "#0c7c59" }}
+                            />
+                            <small className="text-primary">
                               Est. Completion:
                             </small>
                             {apt.estimatedCompletion ? (
@@ -471,23 +497,23 @@ export default function AdminDashboard() {
                                 )}
                               </strong>
                             ) : (
-                              <strong className="ms-2 text-muted">
+                              <strong className="ms-2 text-primary">
                                 Not set
                               </strong>
                             )}
                           </div>
                           {editingETA === apt.id ? (
-                            <div className="d-flex gap-2 align-items-center">
+                            <div className="d-flex flex-wrap gap-2 align-items-center">
                               <Form.Control
                                 type="number"
                                 size="sm"
-                                style={{ width: "80px" }}
+                                style={{ width: "70px" }}
                                 value={etaMinutes}
                                 onChange={(e) => setEtaMinutes(e.target.value)}
                                 min="5"
                                 max="180"
                               />
-                              <small className="text-muted">min</small>
+                              <small className="text-primary">min</small>
                               <Button
                                 size="sm"
                                 variant="success"
@@ -508,10 +534,14 @@ export default function AdminDashboard() {
                           ) : (
                             <Button
                               size="sm"
-                              variant="outline-primary"
                               onClick={() => {
                                 setEditingETA(apt.id);
                                 setEtaMinutes(30);
+                              }}
+                              style={{
+                                backgroundColor: "transparent",
+                                borderColor: "#0c7c59",
+                                color: "#0c7c59",
                               }}
                             >
                               Update ETA
@@ -523,9 +553,13 @@ export default function AdminDashboard() {
                         <div className="mt-3">
                           <Button
                             size="sm"
-                            variant="outline-primary"
                             className="w-100"
                             onClick={() => setSelectedAppointment(apt)}
+                            style={{
+                              backgroundColor: "transparent",
+                              borderColor: "#0c7c59",
+                              color: "#0c7c59",
+                            }}
                           >
                             <MessageSquare size={16} className="me-2" />
                             Send Update to Customer
@@ -536,7 +570,7 @@ export default function AdminDashboard() {
                   ))
                 ) : (
                   <Card.Body className="text-center py-5">
-                    <p className="text-muted mb-0">
+                    <p className="text-primary mb-0">
                       No pets currently being groomed
                     </p>
                   </Card.Body>
@@ -546,11 +580,11 @@ export default function AdminDashboard() {
           </Col>
 
           {/* Right Side - Upcoming & Messages */}
-          <Col lg={5}>
+          <Col xs={12} lg={5}>
             {/* Upcoming Appointments */}
             <Card className="border-0 shadow-sm mb-4">
               <Card.Header className="bg-white border-0 py-3">
-                <h5 className="mb-0">
+                <h5 className="mb-0" style={{ color: "#2b303a" }}>
                   Upcoming Today ({upcomingAppointments.length})
                 </h5>
               </Card.Header>
@@ -558,23 +592,24 @@ export default function AdminDashboard() {
                 {upcomingAppointments.length > 0 ? (
                   upcomingAppointments.map((apt) => (
                     <ListGroup.Item key={apt.id} className="py-3">
-                      <div className="d-flex gap-3 align-items-center">
+                      <div className="d-flex flex-column flex-sm-row gap-3 align-items-start align-items-sm-center">
                         <img
                           src={apt.petPhoto}
                           alt={apt.petName}
-                          className="rounded-circle"
+                          className="rounded-circle pet-photo"
                           style={{
                             width: "60px",
                             height: "60px",
                             objectFit: "cover",
+                            border: "2px solid #61e294",
                           }}
                         />
                         <div className="flex-grow-1">
                           <h6 className="mb-1">{apt.petName}</h6>
-                          <small className="text-muted d-block">
+                          <small className="text-primary d-block">
                             {apt.customerName}
                           </small>
-                          <small className="text-muted">{apt.service}</small>
+                          <small className="text-primary">{apt.service}</small>
                           <div className="mt-1">
                             <Badge bg="secondary">
                               {format(new Date(apt.date), "h:mm a")}
@@ -583,8 +618,12 @@ export default function AdminDashboard() {
                         </div>
                         <Button
                           size="sm"
-                          variant="primary"
                           onClick={() => checkInAppointment(apt.id)}
+                          style={{
+                            backgroundColor: "#0c7c59",
+                            borderColor: "#0c7c59",
+                            color: "#fff9fb",
+                          }}
                         >
                           Check In
                         </Button>
@@ -603,9 +642,13 @@ export default function AdminDashboard() {
             {selectedAppointment && (
               <Card className="border-0 shadow-sm">
                 <Card.Header className="bg-white border-0 py-3">
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
                     <h6 className="mb-0">
-                      <MessageSquare size={18} className="me-2" />
+                      <MessageSquare
+                        size={18}
+                        className="me-2"
+                        style={{ color: "#0c7c59" }}
+                      />
                       Message {selectedAppointment.customerName}
                     </h6>
                     <Button
@@ -621,15 +664,19 @@ export default function AdminDashboard() {
                   {selectedAppointment.messages &&
                   selectedAppointment.messages.length > 0 ? (
                     selectedAppointment.messages.map((msg) => (
-                      <div key={msg.id} className="mb-3 p-3 bg-light rounded">
-                        <small className="text-muted d-block mb-1">
+                      <div
+                        key={msg.id}
+                        className="mb-3 p-3 rounded"
+                        style={{ backgroundColor: "rgba(97, 226, 148, 0.1)" }}
+                      >
+                        <small className="text-primary d-block mb-1">
                           {format(new Date(msg.time), "h:mm a")}
                         </small>
                         <p className="mb-0">{msg.text}</p>
                       </div>
                     ))
                   ) : (
-                    <p className="text-muted text-center">
+                    <p className="text-primaru text-center">
                       No messages sent yet
                     </p>
                   )}
@@ -648,11 +695,18 @@ export default function AdminDashboard() {
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                       />
-                      <Button type="submit" variant="primary">
+                      <Button
+                        type="submit"
+                        style={{
+                          backgroundColor: "#0c7c59",
+                          borderColor: "#0c7c59",
+                          color: "#fff9fb",
+                        }}
+                      >
                         <Send size={18} />
                       </Button>
                     </div>
-                    <small className="text-muted d-block mt-2">
+                    <small className="text-primary d-block mt-2">
                       Customer will receive this as a text message
                     </small>
                   </Form>

@@ -40,7 +40,7 @@ export default function AdminLogin() {
     <div
       className="min-vh-100 d-flex align-items-center"
       style={{
-        background: "linear-gradient(135deg, #d8e2dc 0%, #f0f8f5 100%)",
+        background: "linear-gradient(135deg, #0c7c59 0%, #0a6347 100%)",
       }}
     >
       <Container>
@@ -49,8 +49,10 @@ export default function AdminLogin() {
             <Card className="border-0 shadow-lg">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
-                  <h2 className="fw-bold mb-2">Staff Portal</h2>
-                  <p className="text-muted">Bark N Boujee Administration</p>
+                  <h2 className="fw-bold mb-2" style={{ color: "#2b303a" }}>
+                    Staff Portal
+                  </h2>
+                  <p className="text-primary">Bark N Boujee Administration</p>
                 </div>
 
                 {error && (
@@ -65,41 +67,58 @@ export default function AdminLogin() {
 
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3">
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label style={{ color: "#2b303a" }}>
+                      Email Address
+                    </Form.Label>
                     <Form.Control
                       type="email"
                       placeholder="Enter your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
+                      style={{
+                        borderColor: "rgba(97, 226, 148, 0.3)",
+                        fontSize: "16px",
+                      }}
                     />
                   </Form.Group>
 
                   <Form.Group className="mb-4">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label style={{ color: "#2b303a" }}>
+                      Password
+                    </Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
+                      style={{
+                        borderColor: "rgba(97, 226, 148, 0.3)",
+                        fontSize: "16px",
+                      }}
                     />
                   </Form.Group>
 
                   <Button
                     type="submit"
-                    variant="primary"
                     size="lg"
                     className="w-100 mb-3"
+                    style={{
+                      backgroundColor: "#0c7c59",
+                      borderColor: "#0c7c59",
+                      color: "#fff9fb",
+                      fontWeight: "600",
+                    }}
                   >
                     Sign In
                   </Button>
                 </Form>
 
-                <hr />
+                <hr style={{ borderColor: "rgba(97, 226, 148, 0.2)" }} />
 
                 <div className="text-center">
-                  <small className="text-muted d-block mb-2">
+                  <small className="text-primary d-block mb-2">
                     Demo Credentials:
                   </small>
                   <small className="d-block mb-1">
@@ -116,8 +135,14 @@ export default function AdminLogin() {
                 </div>
 
                 <div className="text-center mt-4">
-                  <small className="text-muted">
-                    Customer? <Link to="/login">Customer Login</Link>
+                  <small className="text-primary">
+                    Customer?{" "}
+                    <Link
+                      to="/login"
+                      style={{ color: "#0c7c59", fontWeight: "600" }}
+                    >
+                      Customer Login
+                    </Link>
                   </small>
                 </div>
               </Card.Body>

@@ -7,11 +7,13 @@ export default function TestimonialsPreview() {
   const featuredTestimonials = mockTestimonials.slice(0, 3);
 
   return (
-    <section className="py-5" style={{ backgroundColor: "#d8e2dc" }}>
+    <section className="py-5" style={{ backgroundColor: "#0c7c59" }}>
       <Container>
         {/* Section Header */}
         <div className="text-center mb-5">
-          <h2 className="display-4 fw-bold mb-3">What Our Customers Say</h2>
+          <h2 className="display-4 fw-bold mb-3" style={{ color: "#fff9fb" }}>
+            What Our Customers Say
+          </h2>
           <p className="lead text-muted">
             Don't just take our word for it - hear from happy pet parents
           </p>
@@ -23,26 +25,29 @@ export default function TestimonialsPreview() {
             <Col key={testimonial.id} md={4}>
               <Card
                 className="h-100 border-0 shadow-sm"
-                style={{ borderTop: "4px solid #ffcad4" }}
+                style={{ borderTop: "4px solid #61e294" }}
               >
                 <Card.Body>
                   {/* Quote Icon */}
                   <div className="mb-3">
-                    <Quote size={32} style={{ color: "#f4acb7" }} />
+                    <Quote size={32} style={{ color: "#0c7c59" }} />
                   </div>
 
                   {/* Rating */}
-                  <div className="d-flex gap-1 mb-3 star-rating">
+                  <div
+                    className="d-flex gap-1 mb-3"
+                    style={{ color: "#0c7c59" }}
+                  >
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} size={20} fill="currentColor" />
                     ))}
                   </div>
 
                   {/* Content */}
-                  <Card.Title className="h5 mb-2">
+                  <Card.Title className="h5 mb-2" style={{ color: "#2b303a" }}>
                     {testimonial.title}
                   </Card.Title>
-                  <Card.Text className="text-muted mb-4">
+                  <Card.Text className="text-primary mb-4">
                     "{testimonial.content}"
                   </Card.Text>
 
@@ -56,12 +61,14 @@ export default function TestimonialsPreview() {
                         width: "50px",
                         height: "50px",
                         objectFit: "cover",
-                        border: "2px solid #ffcad4",
+                        border: "2px solid #61e294",
                       }}
                     />
                     <div>
-                      <div className="fw-semibold">{testimonial.userName}</div>
-                      <small className="text-muted">
+                      <div className="fw-semibold" style={{ color: "#2b303a" }}>
+                        {testimonial.userName}
+                      </div>
+                      <small className="text-primary">
                         Pet parent of {testimonial.petName}
                       </small>
                     </div>
@@ -77,8 +84,13 @@ export default function TestimonialsPreview() {
           <Button
             as={Link}
             to="/testimonials"
-            variant="outline-primary"
             size="lg"
+            style={{
+              backgroundColor: "transparent",
+              borderColor: "#0c7c59",
+              color: "#0c7c59",
+              fontWeight: "600",
+            }}
           >
             Read More Reviews
           </Button>

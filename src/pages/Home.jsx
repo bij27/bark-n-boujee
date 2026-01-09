@@ -1,6 +1,7 @@
 import Hero from "../components/home/Hero.jsx";
 import ServicesPreview from "../components/home/ServicesPreview.jsx";
 import TestimonialsPreview from "../components/home/TestimonialsPreview.jsx";
+import SectionDivider from "../components/common/SectionDivider.jsx";
 import CallToAction from "../components/home/CallToAction.jsx";
 import {
   Container,
@@ -56,11 +57,17 @@ export default function Home() {
     };
 
     return (
-      <div className="bg-light py-5">
+      <div
+        style={{
+          backgroundColor: "#fff9fb",
+          paddingTop: "3rem",
+          paddingBottom: "3rem",
+        }}
+      >
         <Container>
           {/* Welcome Header */}
           <div className="text-center mb-5">
-            <h1 className="display-4 fw-bold">
+            <h1 className="display-4 fw-bold" style={{ color: "#2b303a" }}>
               Welcome back, {user.firstName}!
             </h1>
             <p className="lead text-muted">
@@ -70,20 +77,20 @@ export default function Home() {
 
           <Row className="g-4">
             {/* Left Column - Main Dashboard */}
-            <Col lg={8}>
+            <Col xs={12} lg={8}>
               {/* Pet Tracker */}
               <PetTracker appointment={inProgressAppointment} />
 
               {/* Quick Stats */}
-              <Row className="g-3 mb-4">
-                <Col md={4}>
+              <Row className="g-3 mb-4 dashboard-stats">
+                <Col xs={12} sm={6} md={4}>
                   <Card className="border-0 shadow-sm h-100">
                     <Card.Body className="text-center">
                       <div
-                        style={{ backgroundColor: "rgba(255, 202, 212, 0.2)" }}
+                        style={{ backgroundColor: "rgba(97, 226, 148, 0.2)" }}
                         className="rounded-circle d-inline-flex p-3 mb-2"
                       >
-                        <Gift size={32} style={{ color: "#f4acb7" }} />
+                        <Gift size={32} style={{ color: "#0c7c59" }} />
                       </div>
                       <h3 className="h2 fw-bold mb-0">
                         {mockRewards.points.toLocaleString()}
@@ -93,14 +100,14 @@ export default function Home() {
                   </Card>
                 </Col>
 
-                <Col md={4}>
+                <Col xs={12} sm={6} md={4}>
                   <Card className="border-0 shadow-sm h-100">
                     <Card.Body className="text-center">
                       <div
-                        style={{ backgroundColor: "rgba(157, 129, 137, 0.2)" }}
+                        style={{ backgroundColor: "rgba(255, 226, 209, 0.3)" }}
                         className="rounded-circle d-inline-flex p-3 mb-2"
                       >
-                        <Calendar size={32} style={{ color: "#9d8189" }} />
+                        <Calendar size={32} style={{ color: "#0c7c59" }} />
                       </div>
                       <h3 className="h2 fw-bold mb-0">
                         {upcomingAppointments.length}
@@ -110,14 +117,14 @@ export default function Home() {
                   </Card>
                 </Col>
 
-                <Col md={4}>
+                <Col xs={12} sm={12} md={4}>
                   <Card className="border-0 shadow-sm h-100">
                     <Card.Body className="text-center">
                       <div
-                        style={{ backgroundColor: "rgba(216, 226, 220, 0.4)" }}
+                        style={{ backgroundColor: "rgba(97, 226, 148, 0.15)" }}
                         className="rounded-circle d-inline-flex p-3 mb-2"
                       >
-                        <Heart size={32} style={{ color: "#9d8189" }} />
+                        <Heart size={32} style={{ color: "#61e294" }} />
                       </div>
                       <h3 className="h2 fw-bold mb-0">{mockPets.length}</h3>
                       <small className="text-muted">Furry Friends</small>
@@ -129,9 +136,9 @@ export default function Home() {
               {/* Rewards Tier Progress */}
               <Card className="border-0 shadow-sm mb-4">
                 <Card.Body>
-                  <div className="d-flex justify-content-between align-items-center mb-3">
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-2">
                     <div className="d-flex align-items-center gap-2">
-                      <Award size={24} style={{ color: "#f4acb7" }} />
+                      <Award size={24} style={{ color: "#0c7c59" }} />
                       <h5 className="mb-0">
                         Rewards Tier:{" "}
                         <Badge
@@ -141,7 +148,14 @@ export default function Home() {
                         </Badge>
                       </h5>
                     </div>
-                    <Button size="sm" variant="outline-primary">
+                    <Button
+                      size="sm"
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "#0c7c59",
+                        color: "#0c7c59",
+                      }}
+                    >
                       View Rewards
                     </Button>
                   </div>
@@ -149,14 +163,17 @@ export default function Home() {
                   <div className="mb-2">
                     <div className="d-flex justify-content-between small mb-1">
                       <span>{mockRewards.points.toLocaleString()} points</span>
-                      <span>
+                      <span className="text-end">
                         {mockRewards.tierProgress.nextTier.toLocaleString()}{" "}
                         points to Silver
                       </span>
                     </div>
                     <div
                       className="progress"
-                      style={{ height: "10px", backgroundColor: "#d8e2dc" }}
+                      style={{
+                        height: "10px",
+                        backgroundColor: "rgba(97, 226, 148, 0.2)",
+                      }}
                     >
                       <div
                         className="progress-bar"
@@ -166,7 +183,7 @@ export default function Home() {
                               mockRewards.tierProgress.nextTier) *
                             100
                           }%`,
-                          backgroundColor: "#ffcad4",
+                          backgroundColor: "#61e294",
                         }}
                       ></div>
                     </div>
@@ -185,12 +202,23 @@ export default function Home() {
               {/* Upcoming Appointments */}
               <Card className="border-0 shadow-sm mb-4">
                 <Card.Header className="bg-white border-0 py-3">
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
                     <h5 className="mb-0">
-                      <Calendar size={20} className="me-2" />
+                      <Calendar
+                        size={20}
+                        className="me-2"
+                        style={{ color: "#0c7c59" }}
+                      />
                       Upcoming Appointments
                     </h5>
-                    <Button size="sm" variant="primary">
+                    <Button
+                      size="sm"
+                      style={{
+                        backgroundColor: "#0c7c59",
+                        borderColor: "#0c7c59",
+                        color: "#fff9fb",
+                      }}
+                    >
                       Book New
                     </Button>
                   </div>
@@ -200,13 +228,13 @@ export default function Home() {
                     upcomingAppointments.map((apt) => (
                       <ListGroup.Item key={apt.id} className="py-3">
                         <Row className="align-items-center">
-                          <Col md={8}>
+                          <Col xs={12} md={8} className="mb-2 mb-md-0">
                             <h6 className="mb-1">{apt.service}</h6>
                             <small className="text-muted">
                               {apt.petName} • {apt.groomer} • {apt.location}
                             </small>
                           </Col>
-                          <Col md={4} className="text-md-end">
+                          <Col xs={12} md={4} className="text-md-end">
                             <div className="fw-semibold">
                               {format(new Date(apt.date), "MMM dd, yyyy")}
                             </div>
@@ -222,7 +250,14 @@ export default function Home() {
                       <p className="text-muted mb-2">
                         No upcoming appointments
                       </p>
-                      <Button size="sm" variant="primary">
+                      <Button
+                        size="sm"
+                        style={{
+                          backgroundColor: "#0c7c59",
+                          borderColor: "#0c7c59",
+                          color: "#fff9fb",
+                        }}
+                      >
                         Book Your First Visit
                       </Button>
                     </ListGroup.Item>
@@ -233,9 +268,16 @@ export default function Home() {
               {/* Recent Appointments */}
               <Card className="border-0 shadow-sm">
                 <Card.Header className="bg-white border-0 py-3">
-                  <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2">
                     <h5 className="mb-0">Recent Visits</h5>
-                    <Button size="sm" variant="outline-primary">
+                    <Button
+                      size="sm"
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "#0c7c59",
+                        color: "#0c7c59",
+                      }}
+                    >
                       View All
                     </Button>
                   </div>
@@ -244,13 +286,13 @@ export default function Home() {
                   {recentAppointments.map((apt) => (
                     <ListGroup.Item key={apt.id} className="py-3">
                       <Row className="align-items-center">
-                        <Col md={8}>
+                        <Col xs={12} md={8} className="mb-2 mb-md-0">
                           <h6 className="mb-1">{apt.service}</h6>
                           <small className="text-muted">
                             {apt.petName} • {apt.groomer}
                           </small>
                         </Col>
-                        <Col md={4} className="text-md-end">
+                        <Col xs={12} md={4} className="text-md-end">
                           <div className="fw-semibold">
                             {format(new Date(apt.date), "MMM dd, yyyy")}
                           </div>
@@ -266,7 +308,7 @@ export default function Home() {
             </Col>
 
             {/* Right Column - Sidebar */}
-            <Col lg={4}>
+            <Col xs={12} lg={4}>
               {/* Quick Actions */}
               <Card className="border-0 shadow-sm mb-4">
                 <Card.Header className="bg-white border-0 py-3">
@@ -274,15 +316,33 @@ export default function Home() {
                 </Card.Header>
                 <Card.Body>
                   <div className="d-grid gap-2">
-                    <Button variant="primary">
+                    <Button
+                      style={{
+                        backgroundColor: "#0c7c59",
+                        borderColor: "#0c7c59",
+                        color: "#fff9fb",
+                      }}
+                    >
                       <Calendar size={18} className="me-2" />
                       Book Appointment
                     </Button>
-                    <Button variant="outline-primary">
+                    <Button
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "#0c7c59",
+                        color: "#0c7c59",
+                      }}
+                    >
                       <Gift size={18} className="me-2" />
                       Redeem Rewards
                     </Button>
-                    <Button variant="outline-primary">
+                    <Button
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "#0c7c59",
+                        color: "#0c7c59",
+                      }}
+                    >
                       <Award size={18} className="me-2" />
                       Leave a Review
                     </Button>
@@ -295,7 +355,14 @@ export default function Home() {
                 <Card.Header className="bg-white border-0 py-3">
                   <div className="d-flex justify-content-between align-items-center">
                     <h5 className="mb-0">My Pets</h5>
-                    <Button size="sm" variant="outline-primary">
+                    <Button
+                      size="sm"
+                      style={{
+                        backgroundColor: "transparent",
+                        borderColor: "#0c7c59",
+                        color: "#0c7c59",
+                      }}
+                    >
                       Manage
                     </Button>
                   </div>
@@ -307,11 +374,12 @@ export default function Home() {
                         <img
                           src={pet.photo}
                           alt={pet.name}
-                          className="rounded-circle"
+                          className="rounded-circle pet-photo"
                           style={{
                             width: "60px",
                             height: "60px",
                             objectFit: "cover",
+                            border: "2px solid #61e294",
                           }}
                         />
                         <div>
@@ -332,7 +400,7 @@ export default function Home() {
               {/* Vaccine Status */}
               <Card className="border-0 shadow-sm">
                 <Card.Header className="bg-white border-0 py-3">
-                  <h5 className="mb-0"> Vaccine Status</h5>
+                  <h5 className="mb-0">Vaccine Status</h5>
                 </Card.Header>
                 <Card.Body>
                   {mockPets.map((pet) => (
@@ -418,8 +486,11 @@ export default function Home() {
   return (
     <div>
       <Hero />
+      <SectionDivider />
       <ServicesPreview />
+      <SectionDivider />
       <TestimonialsPreview />
+      <SectionDivider />
       <CallToAction />
     </div>
   );

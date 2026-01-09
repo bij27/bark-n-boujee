@@ -39,10 +39,16 @@ export default function PetTracker({ appointment }) {
     <Card className="border-0 shadow-sm mb-4">
       <Card.Body>
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h5 className="mb-0">🐾 {appointment.petName}'s Grooming Status</h5>
+          <h5 className="mb-0" style={{ color: "#2b303a" }}>
+            🐾 {appointment.petName}'s Grooming Status
+          </h5>
           <Badge
             className="px-3 py-2"
-            style={{ backgroundColor: "#ffcad4", color: "#000" }}
+            style={{
+              backgroundColor: "#61e294",
+              color: "#2b303a",
+              fontWeight: "600",
+            }}
           >
             In Progress
           </Badge>
@@ -73,7 +79,9 @@ export default function PetTracker({ appointment }) {
                       width: "2px",
                       height: "100%",
                       top: "40px",
-                      backgroundColor: isCompleted ? "#ffcad4" : "#d8e2dc",
+                      backgroundColor: isCompleted
+                        ? "#61e294"
+                        : "rgba(97, 226, 148, 0.2)",
                       zIndex: 0,
                     }}
                   />
@@ -86,8 +94,10 @@ export default function PetTracker({ appointment }) {
                     width: "48px",
                     height: "48px",
                     backgroundColor:
-                      isCompleted || isCurrent ? "#ffcad4" : "#d8e2dc",
-                    color: isCompleted || isCurrent ? "#000" : "#666",
+                      isCompleted || isCurrent
+                        ? "#61e294"
+                        : "rgba(97, 226, 148, 0.2)",
+                    color: isCompleted || isCurrent ? "#2b303a" : "#6c757d",
                     zIndex: 1,
                   }}
                 >
@@ -104,14 +114,14 @@ export default function PetTracker({ appointment }) {
                         ? "fw-semibold"
                         : "text-muted"
                     }`}
-                    style={{ color: isCurrent ? "#f4acb7" : "" }}
+                    style={{ color: isCurrent ? "#0c7c59" : "" }}
                   >
                     {stage.name}
                     {isCurrent && (
                       <span className="ms-2">
                         <span
                           className="spinner-grow spinner-grow-sm"
-                          style={{ color: "#ffcad4" }}
+                          style={{ color: "#61e294" }}
                           role="status"
                         >
                           <span className="visually-hidden">Loading...</span>
@@ -128,7 +138,9 @@ export default function PetTracker({ appointment }) {
                   </small>
                   {isCompleted && (
                     <div className="mt-1">
-                      <small style={{ color: "#4ade80" }}>✓ Completed</small>
+                      <small style={{ color: "#0c7c59", fontWeight: "600" }}>
+                        ✓ Completed
+                      </small>
                     </div>
                   )}
                 </div>
@@ -147,16 +159,18 @@ export default function PetTracker({ appointment }) {
         {/* Estimated Completion */}
         <div
           className="rounded p-3 mt-3"
-          style={{ backgroundColor: "#d8e2dc" }}
+          style={{ backgroundColor: "rgba(97, 226, 148, 0.15)" }}
         >
           <div className="d-flex justify-content-between align-items-center">
             <div>
               <small className="text-muted d-block">Estimated Completion</small>
-              <strong style={{ color: "#f4acb7" }}>3:30 PM</strong>
+              <strong style={{ color: "#0c7c59" }}>3:30 PM</strong>
             </div>
             <div className="text-end">
               <small className="text-muted d-block">Groomer</small>
-              <strong>{appointment.groomer}</strong>
+              <strong style={{ color: "#2b303a" }}>
+                {appointment.groomer}
+              </strong>
             </div>
           </div>
         </div>
