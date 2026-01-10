@@ -21,7 +21,10 @@ export default function CallToAction() {
             <h2 className="display-4 fw-bold mb-3">
               Ready to Pamper Your Pup?
             </h2>
-            <p className="lead mb-0 opacity-90">
+            <p
+              className="lead mb-0"
+              style={{ color: "#2b303a", opacity: "0.9" }}
+            >
               Book your appointment today and join our rewards program to start
               earning points with every visit!
             </p>
@@ -55,7 +58,7 @@ export default function CallToAction() {
                     "0 4px 14px rgba(97, 226, 148, 0.4)";
                 }}
               >
-                <Calendar size={20} />
+                <Calendar size={20} color="#FF3C38" />
                 Book Appointment
               </Button>
               <Button
@@ -80,7 +83,7 @@ export default function CallToAction() {
                   e.target.style.backgroundColor = "transparent";
                 }}
               >
-                <Gift size={20} />
+                <Gift size={20} color="#FF3C38" />
                 Join Rewards Program
               </Button>
             </div>
@@ -109,7 +112,11 @@ export default function CallToAction() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <Gift size={40} className="mb-3" style={{ color: "#61e294" }} />
+              <Gift
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
               <h5 className="fw-bold mb-2">Earn Points</h5>
               <small style={{ opacity: "0.9" }}>
                 Get 10 points for every $1 spent
@@ -136,7 +143,11 @@ export default function CallToAction() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <Award size={40} className="mb-3" style={{ color: "#61e294" }} />
+              <Award
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
               <h5 className="fw-bold mb-2">Tier Benefits</h5>
               <small style={{ opacity: "0.9" }}>
                 Unlock exclusive perks as you climb
@@ -163,7 +174,11 @@ export default function CallToAction() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <Heart size={40} className="mb-3" style={{ color: "#61e294" }} />
+              <Heart
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
               <h5 className="fw-bold mb-2">Special Rewards</h5>
               <small style={{ opacity: "0.9" }}>
                 Free services & birthday treats

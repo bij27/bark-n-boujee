@@ -14,18 +14,16 @@ export default function TestimonialsPreview() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        position: "relative", // Added this
+        position: "relative",
       }}
     >
       <Container style={{ position: "relative", zIndex: 1 }}>
-        {" "}
-        {/* Added z-index */}
         {/* Section Header */}
         <div className="text-center mb-5">
           <h2 className="display-4 fw-bold mb-3" style={{ color: "#fff9fb" }}>
             What Our Customers Say
           </h2>
-          <p className="lead" style={{ color: "#fff9fb", opacity: "0.9" }}>
+          <p className="lead" style={{ color: "#2b303a", opacity: "0.9" }}>
             Don't just take our word for it - hear from happy pet parents
           </p>
         </div>
@@ -37,21 +35,21 @@ export default function TestimonialsPreview() {
                 className="h-100 shadow-sm"
                 style={{
                   borderTop: "4px solid #61e294",
-                  backgroundColor: "rgba(255, 249, 251, 0.95)", // Semi-transparent!
-                  backdropFilter: "blur(10px)", // Frosted glass effect
+                  backgroundColor: "rgba(255, 249, 251, 0.95)",
+                  backdropFilter: "blur(10px)",
                   border: "none",
                 }}
               >
                 <Card.Body>
                   {/* Quote Icon */}
                   <div className="mb-3">
-                    <Quote size={32} style={{ color: "#0c7c59" }} />
+                    <Quote size={32} style={{ color: "#2b303a" }} />
                   </div>
 
                   {/* Rating */}
                   <div
                     className="d-flex gap-1 mb-3"
-                    style={{ color: "#0c7c59" }}
+                    style={{ color: "#E6D18C" }}
                   >
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} size={20} fill="currentColor" />
@@ -62,7 +60,7 @@ export default function TestimonialsPreview() {
                   <Card.Title className="h5 mb-2" style={{ color: "#2b303a" }}>
                     {testimonial.title}
                   </Card.Title>
-                  <Card.Text className="text-muted mb-4">
+                  <Card.Text style={{ color: "#2b303a" }} className="mb-4">
                     "{testimonial.content}"
                   </Card.Text>
 
@@ -83,7 +81,7 @@ export default function TestimonialsPreview() {
                       <div className="fw-semibold" style={{ color: "#2b303a" }}>
                         {testimonial.userName}
                       </div>
-                      <small className="text-muted">
+                      <small style={{ color: "#2b303a" }}>
                         Pet parent of {testimonial.petName}
                       </small>
                     </div>
@@ -106,7 +104,6 @@ export default function TestimonialsPreview() {
               fontWeight: "600",
               padding: "1rem 2.5rem",
               borderRadius: "50px",
-              boxShadow: "0 4px 14px rgba(97, 226, 148, 0.4)",
             }}
           >
             Read More Reviews

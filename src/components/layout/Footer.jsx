@@ -116,7 +116,7 @@ export default function Footer() {
                 <Phone
                   size={16}
                   className="mt-1"
-                  style={{ color: "#61e294" }}
+                  style={{ color: "#FF3C38" }}
                 />
                 <div>
                   <a
@@ -132,7 +132,7 @@ export default function Footer() {
                 <MapPin
                   size={16}
                   className="mt-1"
-                  style={{ color: "#61e294" }}
+                  style={{ color: "#FF3C38" }}
                 />
                 <span style={{ color: "#fff9fb" }}>Chicago, IL</span>
               </li>

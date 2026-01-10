@@ -160,7 +160,7 @@ export default function Header() {
             >
               <Calendar size={18} />
               <span>Book Now</span>
-              <Sparkles size={16} className="sparkle-icon" />
+              <Sparkles size={16} color="#FF3C38" className="sparkle-icon" />
             </Button>
 
             {isAuthenticated ? (

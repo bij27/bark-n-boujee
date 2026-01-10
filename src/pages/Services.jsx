@@ -1,5 +1,6 @@
-import { Container, Row, Col, Card, Badge, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Award, Sparkles, Heart } from "lucide-react";
 
 const services = [
   {
@@ -125,16 +126,16 @@ export default function Services() {
         overflow: "hidden",
       }}
     >
-      {/* Giant Background Logo - Fixed */}
+      {/* Giant Background Logo - Fixed position */}
       <div
         style={{
           position: "fixed",
-          top: "50%",
+          top: "55%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "800px",
-          height: "800px",
-          opacity: "0.05",
+          width: "1200px",
+          height: "1200px",
+          opacity: "0.3",
           zIndex: "0",
           pointerEvents: "none",
         }}
@@ -156,7 +157,7 @@ export default function Services() {
           <h1 className="display-3 fw-bold mb-3" style={{ color: "#fff9fb" }}>
             Our Services
           </h1>
-          <p className="lead mb-4" style={{ color: "#ffe2d1", opacity: "0.9" }}>
+          <p className="lead mb-4" style={{ color: "#2b303a", opacity: "0.9" }}>
             Luxury grooming experiences tailored to your pup's needs
           </p>
           <Button
@@ -179,21 +180,13 @@ export default function Services() {
           {services.map((service) => (
             <Col key={service.id} xs={12} lg={6}>
               <Card
-                className="shadow-sm h-100"
-                style={
-                  service.popular
-                    ? {
-                        borderLeft: "4px solid #0c7c59",
-                        border: "2px solid #2b303a",
-                        borderRadius: "0.5rem",
-                        backgroundColor: "#fff9fb",
-                      }
-                    : {
-                        border: "2px solid #2b303a",
-                        borderRadius: "0.5rem",
-                        backgroundColor: "#fff9fb",
-                      }
-                }
+                className="shadow h-100"
+                style={{
+                  border: "2px solid #E6D18C",
+                  borderRadius: "0.5rem",
+                  backgroundColor: "#fff9fb",
+                  boxShadow: "0 4px 14px rgba(230, 209, 140, 0.4)",
+                }}
               >
                 <Card.Body className="p-4">
                   {/* Header */}
@@ -204,39 +197,11 @@ export default function Services() {
                       </h3>
                       <div
                         className="fw-bold mb-2"
-                        style={{ color: "#0c7c59", fontSize: "1.5rem" }}
+                        style={{ color: "#E6D18C", fontSize: "1.5rem" }}
                       >
                         {service.price}
                       </div>
-                      {service.tagline && (
-                        <Badge
-                          bg=""
-                          text=""
-                          className="px-3 py-2"
-                          style={{
-                            backgroundColor: "#61e294",
-                            color: "#2b303a",
-                            fontWeight: "600",
-                          }}
-                        >
-                          {service.tagline}
-                        </Badge>
-                      )}
                     </div>
-                    {service.popular && (
-                      <Badge
-                        bg=""
-                        text=""
-                        style={{
-                          backgroundColor: "#61e294",
-                          color: "#2b303a",
-                          fontWeight: "600",
-                        }}
-                        className="px-3 py-2"
-                      >
-                        Popular
-                      </Badge>
-                    )}
                   </div>
 
                   {/* Description */}
@@ -260,7 +225,7 @@ export default function Services() {
                   {service.note && (
                     <div
                       className="p-3 rounded mt-4"
-                      style={{ backgroundColor: "rgba(12, 124, 89, 0.1)" }}
+                      style={{ backgroundColor: "rgba(230, 209, 140, 0.1)" }}
                     >
                       <small className="text-primary fst-italic">
                         {service.note}
@@ -276,8 +241,8 @@ export default function Services() {
                       className="w-100"
                       style={{
                         backgroundColor: "transparent",
-                        borderColor: "#0c7c59",
-                        color: "#0c7c59",
+                        borderColor: "#E6D18C",
+                        color: "#E6D18C",
                       }}
                     >
                       Book This Service
@@ -291,11 +256,12 @@ export default function Services() {
 
         {/* Bottom CTA */}
         <div
-          className="text-center mt-5 p-4 p-md-5 rounded-4 cta-section"
+          className="text-center mt-5 p-4 p-md-5 rounded-4 cta-section shadow"
           style={{
             backgroundColor: "#fff9fb",
-            border: "2px solid #61e294",
+            border: "2px solid #E6D18C",
             color: "#2b303A",
+            boxShadow: "0 4px 14px rgba(230, 209, 140, 0.4)",
           }}
         >
           <h3 className="fw-bold mb-3">
@@ -326,8 +292,8 @@ export default function Services() {
               style={{
                 backgroundColor: "transparent",
                 borderWidth: "2px",
-                color: "#fff9fb",
-                borderColor: "#fff9fb",
+                color: "#2b303a",
+                borderColor: "#E6D18C",
               }}
             >
               Book Online
@@ -337,55 +303,107 @@ export default function Services() {
 
         {/* Additional Info */}
         <Row className="mt-5 g-4">
-          <Col xs={12} md={4}>
-            <Card
-              className="border-0 shadow-sm h-100"
-              style={{ backgroundColor: "#ffe2d1" }}
+          <Col md={4}>
+            <div
+              className="text-center p-4 rounded"
+              style={{
+                backgroundColor: "rgba(255, 249, 251, 0.15)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.25)";
+                e.currentTarget.style.transform = "translateY(-5px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.15)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <Card.Body className="text-center p-4">
-                <h5 className="fw-bold mb-3" style={{ color: "#0c7c59" }}>
-                  Expert Groomers
-                </h5>
-                <p className="text-primary mb-0">
-                  Our experienced team knows how to handle every breed and
-                  temperament with care.
-                </p>
-              </Card.Body>
-            </Card>
+              <Award
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
+              <h5 className="fw-bold mb-2" style={{ color: "#fff9fb" }}>
+                Expert Groomers
+              </h5>
+              <small style={{ color: "#fff9fb", opacity: "0.9" }}>
+                Our experienced team knows how to handle every breed and
+                temperament with care.
+              </small>
+            </div>
           </Col>
-
-          <Col xs={12} md={4}>
-            <Card
-              className="border-0 shadow-sm h-100"
-              style={{ backgroundColor: "#ffe2d1" }}
+          <Col md={4}>
+            <div
+              className="text-center p-4 rounded"
+              style={{
+                backgroundColor: "rgba(255, 249, 251, 0.15)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.25)";
+                e.currentTarget.style.transform = "translateY(-5px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.15)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <Card.Body className="text-center p-4">
-                <h5 className="fw-bold mb-3" style={{ color: "#0c7c59" }}>
-                  Premium Products
-                </h5>
-                <p className="text-primary mb-0">
-                  We use only natural, high-quality shampoos and conditioners
-                  that are gentle on your pup's skin.
-                </p>
-              </Card.Body>
-            </Card>
+              <Sparkles
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
+              <h5 className="fw-bold mb-2" style={{ color: "#fff9fb" }}>
+                Premium Products
+              </h5>
+              <small style={{ color: "#fff9fb", opacity: "0.9" }}>
+                We use only natural, high-quality shampoos and conditioners that
+                are gentle on your pup's skin.
+              </small>
+            </div>
           </Col>
-
-          <Col xs={12} md={4}>
-            <Card
-              className="border-0 shadow-sm h-100"
-              style={{ backgroundColor: "#ffe2d1" }}
+          <Col md={4}>
+            <div
+              className="text-center p-4 rounded"
+              style={{
+                backgroundColor: "rgba(255, 249, 251, 0.15)",
+                backdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.2)",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.25)";
+                e.currentTarget.style.transform = "translateY(-5px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(255, 249, 251, 0.15)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
             >
-              <Card.Body className="text-center p-4">
-                <h5 className="fw-bold mb-3" style={{ color: "#0c7c59" }}>
-                  Stress-Free Experience
-                </h5>
-                <p className="text-primary mb-0">
-                  We take extra time with nervous or anxious pets to ensure they
-                  feel safe and comfortable.
-                </p>
-              </Card.Body>
-            </Card>
+              <Heart
+                size={40}
+                className="mb-3"
+                style={{ color: "#FF3C38", opacity: ".7" }}
+              />
+              <h5 className="fw-bold mb-2" style={{ color: "#fff9fb" }}>
+                Stress-Free Experience
+              </h5>
+              <small style={{ color: "#fff9fb", opacity: "0.9" }}>
+                We take extra time with nervous or anxious pets to ensure they
+                feel safe and comfortable.
+              </small>
+            </div>
           </Col>
         </Row>
       </Container>
