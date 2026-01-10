@@ -7,25 +7,40 @@ export default function TestimonialsPreview() {
   const featuredTestimonials = mockTestimonials.slice(0, 3);
 
   return (
-    <section className="py-5" style={{ backgroundColor: "#0c7c59" }}>
-      <Container>
+    <section
+      className="py-5"
+      style={{
+        background: "url('/images/greenpatternbackground.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        position: "relative", // Added this
+      }}
+    >
+      <Container style={{ position: "relative", zIndex: 1 }}>
+        {" "}
+        {/* Added z-index */}
         {/* Section Header */}
         <div className="text-center mb-5">
           <h2 className="display-4 fw-bold mb-3" style={{ color: "#fff9fb" }}>
             What Our Customers Say
           </h2>
-          <p className="lead text-muted">
+          <p className="lead" style={{ color: "#fff9fb", opacity: "0.9" }}>
             Don't just take our word for it - hear from happy pet parents
           </p>
         </div>
-
         {/* Testimonials Grid */}
         <Row className="g-4 mb-5">
           {featuredTestimonials.map((testimonial) => (
             <Col key={testimonial.id} md={4}>
               <Card
-                className="h-100 border-0 shadow-sm"
-                style={{ borderTop: "4px solid #61e294" }}
+                className="h-100 shadow-sm"
+                style={{
+                  borderTop: "4px solid #61e294",
+                  backgroundColor: "rgba(255, 249, 251, 0.95)", // Semi-transparent!
+                  backdropFilter: "blur(10px)", // Frosted glass effect
+                  border: "none",
+                }}
               >
                 <Card.Body>
                   {/* Quote Icon */}
@@ -47,7 +62,7 @@ export default function TestimonialsPreview() {
                   <Card.Title className="h5 mb-2" style={{ color: "#2b303a" }}>
                     {testimonial.title}
                   </Card.Title>
-                  <Card.Text className="text-primary mb-4">
+                  <Card.Text className="text-muted mb-4">
                     "{testimonial.content}"
                   </Card.Text>
 
@@ -68,7 +83,7 @@ export default function TestimonialsPreview() {
                       <div className="fw-semibold" style={{ color: "#2b303a" }}>
                         {testimonial.userName}
                       </div>
-                      <small className="text-primary">
+                      <small className="text-muted">
                         Pet parent of {testimonial.petName}
                       </small>
                     </div>
@@ -78,7 +93,6 @@ export default function TestimonialsPreview() {
             </Col>
           ))}
         </Row>
-
         {/* CTA */}
         <div className="text-center">
           <Button
@@ -86,10 +100,13 @@ export default function TestimonialsPreview() {
             to="/testimonials"
             size="lg"
             style={{
-              backgroundColor: "transparent",
-              borderColor: "#0c7c59",
-              color: "#0c7c59",
+              backgroundColor: "#E6D18C",
+              borderColor: "#E6D18C",
+              color: "#2b303a",
               fontWeight: "600",
+              padding: "1rem 2.5rem",
+              borderRadius: "50px",
+              boxShadow: "0 4px 14px rgba(97, 226, 148, 0.4)",
             }}
           >
             Read More Reviews

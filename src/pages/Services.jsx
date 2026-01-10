@@ -115,7 +115,10 @@ export default function Services() {
   return (
     <div
       style={{
-        background: "linear-gradient(135deg, #0c7c59 0%, #0a6347 100%)",
+        background: "url('/images/greenpatternbackground.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
         paddingTop: "3rem",
         paddingBottom: "3rem",
         position: "relative",

@@ -4,7 +4,14 @@ import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="footer py-5" style={{ backgroundColor: "#2b303a" }}>
+    <footer
+      className="footer py-5"
+      style={{
+        backgroundColor: "#2b303a",
+        position: "relative", // Add this
+        zIndex: "10",
+      }}
+    >
       <Container>
         <Row className="g-4">
           {/* About */}
