@@ -2,10 +2,10 @@
    NEW COLOR PALETTE
    ======================================== */
 :root {
-  --turf-green: #c2c5bb;
-  --light-green: #e6d18c;
-  --powder-petal: #ffe2d1;
+  --gray: #c2c5bb;
+  --gold: #e6d18c;
   --jet-black: #2b303a;
+  --red: #ff3c38;
   --snow: #fff9fb;
 }
 
@@ -13,40 +13,39 @@
    BOOTSTRAP OVERRIDES
    ======================================== */
 
-/* Primary Button - Turf Green */
+/* Primary Button - Red */
 .btn-primary {
-  background-color: var(--turf-green) !important;
-  border-color: var(--turf-green) !important;
+  background-color: var(--gray) !important;
+  border-color: var(--gray) !important;
   color: var(--snow) !important;
 }
 
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  background-color: #0a6347 !important;
-  border-color: #0a6347 !important;
+  background-color: #2b303a !important;
+  border-color: #2b303a !important;
   color: var(--snow) !important;
-  box-shadow: 0 4px 12px rgba(12, 124, 89, 0.3) !important;
 }
 
 /* Outline Primary Button */
 .btn-outline-primary {
-  border-color: var(--turf-green) !important;
-  color: var(--turf-green) !important;
+  border-color: var(--gray) !important;
+  color: var(--gray) !important;
   background-color: transparent !important;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus,
 .btn-outline-primary:active {
-  background-color: var(--turf-green) !important;
-  border-color: var(--turf-green) !important;
+  background-color: var(--jet-black) !important;
+  border-color: var(--jet-black) !important;
   color: var(--snow) !important;
 }
 
 /* Background Colors */
 .bg-primary {
-  background-color: var(--turf-green) !important;
+  background-color: var(--snow) !important;
 }
 
 .bg-light {
@@ -59,7 +58,7 @@
 }
 
 .text-muted {
-  color: #ffe2d1 !important;
+  color: var(--gray) !important;
 }
 
 /* Badges */
@@ -68,43 +67,43 @@
   top: 1rem;
   right: 1rem;
   z-index: 10;
-  background-color: var(--powder-petal) !important;
+  background-color: var(--gold) !important;
   color: var(--jet-black) !important;
   font-weight: 600;
 }
 
 .badge.bg-primary {
-  background-color: var(--turf-green) !important;
+  background-color: var(--gold) !important;
 }
 
 /* Progress Bar */
 .progress {
-  background-color: rgba(97, 226, 148, 0.2) !important;
+  background-color: rgba(230, 209, 140, 0.2) !important;
 }
 
 .progress-bar {
-  background-color: var(--light-green) !important;
+  background-color: var(--gold) !important;
 }
 
 /* Links */
 a {
-  color: var(--turf-green);
+  color: var(--snow);
   text-decoration: none;
 }
 
 a:hover {
-  color: #ffe2d1;
+  color: var(--jet-black);
   text-decoration: none;
 }
 
 /* Cards */
 .card {
-  border-color: rgba(97, 226, 148, 0.2);
+  border-color: rgba(230, 209, 140, 0.2);
 }
 
 .card-hover:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(12, 124, 89, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(255, 60, 56, 0.15) !important;
   transition: all 0.3s ease;
 }
 
@@ -123,13 +122,13 @@ a:hover {
 }
 
 .navbar .nav-link:hover {
-  color: var(--light-green) !important;
+  color: var(--gold) !important;
 }
 
 /* Footer */
 .footer {
   background-color: var(--jet-black) !important;
-  color: var(--powder-petal) !important;
+  color: var(--gray) !important;
 }
 
 .footer h5 {
@@ -141,16 +140,16 @@ a:hover {
 }
 
 .footer a:hover {
-  color: var(--light-green) !important;
+  color: var(--gold) !important;
 }
 
 .footer .social-icon {
-  background-color: rgba(97, 226, 148, 0.2);
+  background-color: rgba(230, 209, 140, 0.2);
   color: var(--snow);
 }
 
 .footer .social-icon:hover {
-  background-color: var(--light-green);
+  background-color: var(--gold);
   color: var(--jet-black);
 }
 
@@ -169,7 +168,7 @@ a:hover {
 
 .brand-tagline {
   font-size: 0.65rem;
-  color: var(--light-green) !important;
+  color: var(--gold) !important;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -188,15 +187,15 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--light-green);
+  background-color: var(--gold);
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(97, 226, 148, 0.3);
+  box-shadow: 0 4px 12px rgba(230, 209, 140, 0.3);
   transition: all 0.3s ease;
 }
 
 .navbar-brand:hover .logo-container {
   transform: rotate(-5deg) scale(1.05);
-  box-shadow: 0 6px 16px rgba(97, 226, 148, 0.4);
+  box-shadow: 0 6px 16px rgba(230, 209, 140, 0.4);
 }
 
 .logo-icon {
@@ -214,15 +213,15 @@ a:hover {
 }
 
 .hero-section h1 span {
-  color: var(--turf-green) !important;
+  color: var(--red) !important;
 }
 
 .hero-section .feature-icon {
-  background-color: var(--powder-petal) !important;
+  background-color: var(--gold) !important;
 }
 
 .hero-section .floating-card {
-  border: 2px solid var(--light-green) !important;
+  border: 2px solid var(--gold) !important;
 }
 
 /* ========================================
@@ -231,7 +230,7 @@ a:hover {
 
 /* Navbar Scroll Effect */
 .navbar-scrolled {
-  box-shadow: 0 4px 20px rgba(12, 124, 89, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(255, 60, 56, 0.2) !important;
 }
 
 /* Nav Links Animation */
@@ -249,13 +248,13 @@ a:hover {
   left: 50%;
   width: 0;
   height: 2px;
-  background: var(--light-green);
+  background: var(--gold);
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
 
 .nav-link-animated:hover {
-  color: var(--light-green) !important;
+  color: var(--gold) !important;
   transform: translateY(-2px);
 }
 
@@ -267,29 +266,41 @@ a:hover {
 .btn-book-animated {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   animation: pulse-glow 2s infinite;
-  background-color: var(--light-green) !important;
-  border-color: var(--light-green) !important;
-  color: var(--jet-black) !important;
-  font-weight: 600;
+  background-color: #e6d18c !important;
+  border-color: #e6d18c !important;
+  color: #2b303a !important;
+  font-weight: 600 !important;
 }
 
 @keyframes pulse-glow {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(97, 226, 148, 0.7);
+    box-shadow: 0 0 0 0 rgba(230, 209, 140, 0.7);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(97, 226, 148, 0);
+    box-shadow: 0 0 0 8px rgba(230, 209, 140, 0);
   }
 }
 
-.btn-book-animated:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(97, 226, 148, 0.4) !important;
-  background-color: #ffe2d1 !important;
-  color: var(--jet-black) !important;
+.btn-book-animated:hover,
+.btn-book-animated:focus,
+.btn-book-animated:active,
+.btn-book-animated:focus-visible {
+  transform: translateY(-2px) !important;
+  background-color: #fff9fb !important;
+  border-color: #e6d18c !important;
+  color: #2b303a !important;
+  box-shadow: 0 6px 20px rgba(230, 209, 140, 0.4) !important;
+  outline: none !important;
+}
+
+.btn-book-animated:active:focus {
+  background-color: #fff9fb !important;
+  border-color: #e6d18c !important;
+  color: #2b303a !important;
+  box-shadow: 0 6px 20px rgba(230, 209, 140, 0.4) !important;
 }
 
 .sparkle-icon {
@@ -310,16 +321,20 @@ a:hover {
 
 /* Login Button Animation */
 .btn-login-animated {
-  transition: all 0.3s ease;
-  border-color: var(--snow) !important;
-  color: var(--snow) !important;
+  transition: all 0.3s ease !important;
+  background-color: #c2c5bb !important;
+  border-color: #fff9fb !important;
+  color: #fff9fb !important;
 }
 
-.btn-login-animated:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px #ffe2d1;
-  background-color: var(--powder-petal) !important;
-  color: var(--turf-green) !important;
+.btn-login-animated:hover,
+.btn-login-animated:focus,
+.btn-login-animated:active {
+  transform: translateY(-2px) !important;
+  background-color: #e6d18c !important;
+  border-color: #fff9fb !important;
+  color: #fff9fb !important;
+  box-shadow: 0 4px 12px rgba(230, 209, 140, 0.4) !important;
 }
 
 /* User Avatar */
@@ -327,7 +342,7 @@ a:hover {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--light-green);
+  background: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -344,8 +359,8 @@ a:hover {
 /* Dropdown Menu Animation */
 .dropdown-menu-animated {
   animation: dropdown-fade-in 0.3s ease;
-  border: 2px solid var(--light-green);
-  box-shadow: 0 8px 24px rgba(12, 124, 89, 0.2);
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(230, 209, 140, 0.2);
 }
 
 @keyframes dropdown-fade-in {
@@ -366,8 +381,8 @@ a:hover {
 }
 
 .dropdown-item-animated:hover {
-  background-color: rgba(97, 226, 148, 0.2) !important;
-  color: var(--turf-green) !important;
+  background-color: rgba(230, 209, 140, 0.2) !important;
+  color: var(--red) !important;
   transform: translateX(5px);
 }
 
@@ -376,20 +391,12 @@ a:hover {
    ======================================== */
 
 .cta-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--turf-green) 0%,
-    #0a6347 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--red) 0%, #e63531 100%) !important;
   color: var(--snow) !important;
 }
 
 .cta-accent {
-  background: linear-gradient(
-    135deg,
-    var(--powder-petal) 0%,
-    #ffd4ba 100%
-  ) !important;
+  background: linear-gradient(135deg, var(--gold) 0%, #d9c07a 100%) !important;
   color: var(--jet-black) !important;
 }
 
@@ -398,15 +405,15 @@ a:hover {
    ======================================== */
 
 .stat-card-icon-green {
-  background-color: rgba(12, 124, 89, 0.1) !important;
+  background-color: rgba(255, 60, 56, 0.1) !important;
 }
 
 .stat-card-icon-light {
-  background-color: rgba(97, 226, 148, 0.2) !important;
+  background-color: rgba(230, 209, 140, 0.2) !important;
 }
 
 .stat-card-icon-accent {
-  background-color: rgba(255, 226, 209, 0.3) !important;
+  background-color: rgba(194, 197, 187, 0.3) !important;
 }
 
 /* ========================================
@@ -414,11 +421,11 @@ a:hover {
    ======================================== */
 
 .service-card-border {
-  border-left: 4px solid var(--light-green) !important;
+  border-left: 4px solid var(--gold) !important;
 }
 
 .service-price {
-  color: var(--turf-green) !important;
+  color: var(--gold) !important;
 }
 
 /* ========================================
@@ -430,14 +437,14 @@ a:hover {
 }
 
 .stage-button-active {
-  background-color: var(--turf-green) !important;
-  border-color: var(--turf-green) !important;
+  background-color: var(--red) !important;
+  border-color: var(--red) !important;
 }
 
 .stage-button-inactive {
   background-color: transparent !important;
-  border-color: rgba(97, 226, 148, 0.3) !important;
-  color: var(--turf-green) !important;
+  border-color: rgba(230, 209, 140, 0.3) !important;
+  color: var(--red) !important;
 }
 
 /* ========================================
@@ -495,9 +502,9 @@ a:hover {
     animation: mobile-menu-slide 0.3s ease;
     margin-top: 1rem;
     padding: 1rem;
-    background: var(--turf-green);
+    background: var(--red);
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(12, 124, 89, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 60, 56, 0.3);
   }
 
   @keyframes mobile-menu-slide {
@@ -518,7 +525,7 @@ a:hover {
   }
 
   .nav-link-animated:hover {
-    background-color: rgba(97, 226, 148, 0.2);
+    background-color: rgba(230, 209, 140, 0.2);
   }
 
   .btn-book-animated,

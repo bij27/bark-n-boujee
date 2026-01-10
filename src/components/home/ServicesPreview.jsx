@@ -50,7 +50,7 @@ export default function ServicesPreview() {
           <h2 className="display-4 fw-bold mb-3" style={{ color: "#fff9fb" }}>
             Our Services
           </h2>
-          <p className="lead" style={{ color: "#fff9fb", opacity: "0.9" }}>
+          <p className="lead" style={{ color: "#2b303a", opacity: "1" }}>
             Professional grooming services tailored to your pet's needs
           </p>
         </div>
@@ -60,40 +60,25 @@ export default function ServicesPreview() {
           {services.map((service, index) => (
             <Col key={index} md={6} lg={3}>
               <Card
-                className="h-100 shadow-sm card-hover position-relative"
+                className="h-100 position-relative"
                 style={{
-                  border: "2px solid #2b303a",
+                  border: "none",
                   borderRadius: "1rem",
-                  backgroundColor: "#ffe2d1",
+                  backgroundColor: "#fff9fb",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
                   transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "translateY(-8px)";
                   e.currentTarget.style.boxShadow =
-                    "0 12px 30px rgba(0, 0, 0, 0.3)";
+                    "0 8px 24px rgba(0, 0, 0, 0.15)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow =
-                    "0 4px 6px rgba(0, 0, 0, 0.1)";
+                    "0 4px 12px rgba(0, 0, 0, 0.1)";
                 }}
               >
-                {service.popular && (
-                  <Badge
-                    className="position-absolute"
-                    style={{
-                      top: "15px",
-                      right: "15px",
-                      backgroundColor: "#61e294",
-                      color: "#2b303a",
-                      padding: "0.5rem 1rem",
-                      fontWeight: "600",
-                      fontSize: "0.75rem",
-                    }}
-                  >
-                    Popular
-                  </Badge>
-                )}
                 <Card.Body className="p-4">
                   <Card.Title
                     className="h5 mb-3"
@@ -103,13 +88,13 @@ export default function ServicesPreview() {
                   </Card.Title>
                   <Card.Text
                     className="mb-3"
-                    style={{ color: "#6c757d", fontSize: "0.95rem" }}
+                    style={{ color: "#2b303a", fontSize: "0.95rem" }}
                   >
                     {service.description}
                   </Card.Text>
                   <div
                     className="fw-bold mb-3"
-                    style={{ color: "#0c7c59", fontSize: "1.5rem" }}
+                    style={{ color: "#e6d18c", fontSize: "1.5rem" }}
                   >
                     {service.price}
                   </div>
@@ -126,22 +111,24 @@ export default function ServicesPreview() {
             to="/services"
             size="lg"
             style={{
-              backgroundColor: "#61e294",
-              borderColor: "#61e294",
-              color: "#2b303a",
+              backgroundColor: "#c2c5bb",
+              borderColor: "#c2c5bb",
+              color: "#fff9fb",
               fontWeight: "600",
               padding: "1rem 2.5rem",
               borderRadius: "50px",
-              boxShadow: "0 4px 14px rgba(97, 226, 148, 0.4)",
+              boxShadow: "none",
               transition: "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
-              e.target.style.transform = "translateY(-2px)";
-              e.target.style.boxShadow = "0 6px 20px rgba(97, 226, 148, 0.5)";
+              e.target.style.backgroundColor = "#2b303a";
+              e.target.style.borderColor = "#2b303a";
+              e.target.style.color = "#fff9fb";
             }}
             onMouseLeave={(e) => {
-              e.target.style.transform = "translateY(0)";
-              e.target.style.boxShadow = "0 4px 14px rgba(97, 226, 148, 0.4)";
+              e.target.style.backgroundColor = "#c2c5bb";
+              e.target.style.borderColor = "#c2c5bb";
+              e.target.style.color = "#fff9fb";
             }}
           >
             View All Services

@@ -157,12 +157,6 @@ export default function Header() {
               as={Link}
               to="/book"
               className="d-flex align-items-center gap-2 btn-book-animated"
-              style={{
-                backgroundColor: "#ffe2d1 !important",
-                borderColor: "#ffe2d1 !important",
-                color: "#2b303a !important",
-                fontWeight: "600",
-              }}
             >
               <Calendar size={18} />
               <span>Book Now</span>
@@ -182,7 +176,7 @@ export default function Header() {
                   <div
                     className="user-avatar"
                     style={{
-                      backgroundColor: "#61e294",
+                      backgroundColor: "#e6d18c",
                       color: "#2b303a",
                     }}
                   >
@@ -214,11 +208,6 @@ export default function Header() {
                 as={Link}
                 to="/login"
                 className="d-flex align-items-center gap-2 btn-login-animated"
-                style={{
-                  backgroundColor: "transparent",
-                  borderColor: "#fff9fb",
-                  color: "#fff9fb",
-                }}
               >
                 <User size={18} />
                 <span>Login</span>

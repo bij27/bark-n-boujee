@@ -9,7 +9,8 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              backgroundColor: "#ffe2d1",
+              opacity: ".5",
+              backgroundColor: "#e6d18c", // Gold
             }}
           />
           <div
@@ -17,7 +18,8 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              backgroundColor: "rgba(97, 226, 148, 0.6)",
+              opacity: ".5",
+              backgroundColor: "#FF3C38", // Red
             }}
           />
           <div
@@ -25,7 +27,8 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              backgroundColor: "rgba(97, 226, 148, 0.3)",
+              opacity: ".5",
+              backgroundColor: "#e6d18c", // Gold
             }}
           />
         </div>
@@ -40,12 +43,13 @@ export default function SectionDivider() {
             height: "100%",
             width: "100%",
             display: "block",
+            opacity: ".5",
           }}
         >
           <path
             d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
             style={{
-              fill: "#ffe2d1",
+              fill: "#e6d18c", // Gold
             }}
           />
         </svg>
