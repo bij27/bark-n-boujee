@@ -25,7 +25,7 @@ export default function Hero() {
           transform: "translate(-50%, -50%)",
           width: "1200px",
           height: "1200px",
-          opacity: "0.3",
+          opacity: "1",
           zIndex: "0",
           pointerEvents: "none",
         }}

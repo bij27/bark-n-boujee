@@ -9,7 +9,7 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              opacity: ".5",
+              opacity: "2",
               backgroundColor: "#e6d18c", // Gold
             }}
           />
@@ -18,7 +18,6 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              opacity: ".5",
               backgroundColor: "#FF3C38", // Red
             }}
           />
@@ -27,7 +26,6 @@ export default function SectionDivider() {
               width: "10px",
               height: "10px",
               borderRadius: "50%",
-              opacity: ".5",
               backgroundColor: "#e6d18c", // Gold
             }}
           />
@@ -43,7 +41,6 @@ export default function SectionDivider() {
             height: "100%",
             width: "100%",
             display: "block",
-            opacity: ".5",
           }}
         >
           <path

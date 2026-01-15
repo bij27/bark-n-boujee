@@ -34,7 +34,7 @@ export default function TestimonialsPreview() {
               <Card
                 className="h-100 shadow-sm"
                 style={{
-                  borderTop: "4px solid #61e294",
+                  borderTop: "4px solid #FF3C38",
                   backgroundColor: "rgba(255, 249, 251, 0.95)",
                   backdropFilter: "blur(10px)",
                   border: "none",
@@ -74,7 +74,7 @@ export default function TestimonialsPreview() {
                         width: "50px",
                         height: "50px",
                         objectFit: "cover",
-                        border: "2px solid #61e294",
+                        border: "2px solid #FF3C38",
                       }}
                     />
                     <div>
